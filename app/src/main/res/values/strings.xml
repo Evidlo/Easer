@@ -85,9 +85,9 @@
     <string name="hint_condition_title">condition title</string>
 
     <string name="prompt_save_failed">Failed to save</string>
-    <string name="prompt_delete">Are you sure to delete: %s?</string>
+    <string name="prompt_delete">Are you sure you want to delete: %s?</string>
     <string name="prompt_delete_failed">Failed to delete. Check if this item is being used.</string>
-    <string name="prompt_data_illegal">Prevented saving data with invalid field(s). Please recheck your choices / inputs.</string>
+    <string name="prompt_data_illegal">Prevented saving data with invalid field(s). Please check your choices / inputs.</string>
 
     <string name="prompt_prevented_for_permission">Easer needs permission &lt;%s&gt; for this function.</string>
 
@@ -127,14 +127,14 @@ Reminder: Easer is still in development. It may contain bugs and the UI definite
     <string name="pref_welcome_summary">Show welcome message on app startup</string>
 
     <string name="pref_logging_title">Enable external logging</string>
-    <string name="pref_logging_summary">Save logs to external storage devices (/sdcard/logger) to aid bug reports.\nChange of this setting will take effect from next time Easer starts.</string>
+    <string name="pref_logging_summary">Save logs to external storage devices (/sdcard/logger) to aid bug reports.\nThis setting will take effect next time Easer starts.</string>
 
     <string name="pref_use_root_title">Use root features</string>
-    <string name="pref_use_root_summary">Use root permission for specific functions (plugins), which may help resolve compatibility issue on some devices. Root permission won\'t be used elsewhere.</string>
+    <string name="pref_use_root_summary">Use root permission for specific functions (plugins), which may help resolve compatibility issues on some devices. Root permission won\'t be used elsewhere.</string>
 
     <string name="pref_cooldown_title">Cool down time</string>
-    <string name="pref_cooldown_summary">Minimal interval between two triggers of the same event</string>
-    <string name="cooldown_time_illformed">The number must not be lower than 0 and not too large to fit in a integer</string>
+    <string name="pref_cooldown_summary">Minimum interval between two triggers of the same event</string>
+    <string name="cooldown_time_illformed">Must be greater than 0 and smaller than integer maximum</string>
 
     <string name="pref_passive_mode_title">Passive mode</string>
     <string name="pref_passive_mode_summary_on">Listen to Event; no checking when activated</string>
@@ -156,7 +156,7 @@ Reminder: Easer is still in development. It may contain bugs and the UI definite
     <string name="pref_show_notification_title">Show notification</string>
     <string name="pref_show_notification_summary">Show a notification in the notification bar.</string>
     <string name="pref_foreground_title">Run service in foreground</string>
-    <string name="pref_foreground_summary">Make the service less easier to be killed by the system. Will show a notification. Can not be disabled on Android 8+ because of system requirement.</string>
+    <string name="pref_foreground_summary">Make it harder for the system to kill this service. Will show a notification. Cannot be disabled on Android 8+.</string>
 
     <string name="message_plugin_not_compatible">This plugin is not compatible with this device.</string>
 
@@ -187,10 +187,10 @@ Reminder: Easer is still in development. It may contain bugs and the UI definite
     <string name="dynamics_profile_name">Profile Name</string>
 
     <string name="title_help">Help</string>
-    <string name="help_script">Script is the logic containers. You will connect an Event or a Condition with a Profile in a Script, so that Easer knows to load/execute that Profile when that Event happens or the Condition is met.\nThere are also more advanced functions, e.g. reversed event.\nPlease refer to the <a href="https://github.com/renyuneyun/Easer/wiki">document</a> for more information.</string>
-    <string name="help_event">Event represents a short-time (instant) event on your phone or remotely.\nFor example, receiving a notification, or an NFC tag is scanned.\nPlease refer to the <a href="https://github.com/renyuneyun/Easer/wiki">document</a> for more information.</string>
-    <string name="help_condition">Condition represents a long-lasting (but usually not forever) condition on your phone or remotely.\nFor example, connected to WiFi, or Screen is Off.\nPlease refer to the <a href="https://github.com/renyuneyun/Easer/wiki">document</a> for more information.</string>
-    <string name="help_profile">Profile is a set of Operations. Each Operation represents a particular type of action.\nFor example, turn on Bluetooth, or send an SMS.\nPlease refer to the <a href="https://github.com/renyuneyun/Easer/wiki">document</a> for more information.</string>
+    <string name="help_script">A Script holds the logic that determines when a Profile should be loaded/executed. You will connect an Event or a Condition with a Profile in a Script, so that Easer knows to load/execute that Profile when that Event happens or the Condition is met.\nThere are also more advanced functions, e.g. reversed event.\nPlease refer to the <a href="https://github.com/renyuneyun/Easer/wiki">document</a> for more information.</string>
+    <string name="help_event">An Event represents an instantaneous event such as receiving a notification or scanning an NFC tag.  Scripts can be set to trigger when an Event occurs.\nPlease refer to the <a href="https://github.com/renyuneyun/Easer/wiki">document</a> for more information.</string>
+    <string name="help_condition">A Condition represents a long-lasting state, such as WiFi status (connected/disconnected) or screen state (on/off).\nWhen a Script is triggered by an event, it can check whether a Condition is satisfied and modify its behavior.\nPlease refer to the <a href="https://github.com/renyuneyun/Easer/wiki">document</a> for more information.</string>
+    <string name="help_profile">A Profile contains a set of Operations that can be triggered by a Script. Each Operation represents a particular type of action.\nFor example, turn on Bluetooth, or send an SMS.\nPlease refer to the <a href="https://github.com/renyuneyun/Easer/wiki">document</a> for more information.</string>
 
     <string name="category_operation_android">Android</string>
     <string name="category_operation_system_config">System config</string>
