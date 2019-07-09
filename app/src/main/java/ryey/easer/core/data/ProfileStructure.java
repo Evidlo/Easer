@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016 - 2018 Rui Zhao <renyuneyun@gmail.com>
+ * Copyright (c) 2016 - 2019 Rui Zhao <renyuneyun@gmail.com>
  *
  * This file is part of Easer.
  *
@@ -19,8 +19,8 @@
 
 package ryey.easer.core.data;
 
-import android.support.annotation.Nullable;
-import android.support.v4.util.ArraySet;
+import androidx.annotation.Nullable;
+import androidx.collection.ArraySet;
 
 import com.google.common.collect.LinkedListMultimap;
 import com.google.common.collect.Multimap;
@@ -29,7 +29,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Set;
 
-import ryey.easer.commons.local_plugin.operationplugin.OperationData;
+import ryey.easer.commons.local_skill.operationskill.OperationData;
 import ryey.easer.remote_plugin.RemoteOperationData;
 
 /*

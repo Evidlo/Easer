@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016 - 2018 Rui Zhao <renyuneyun@gmail.com>
+ * Copyright (c) 2016 - 2019 Rui Zhao <renyuneyun@gmail.com>
  *
  * This file is part of Easer.
  *
@@ -26,10 +26,9 @@ import android.content.Intent
 import android.content.IntentFilter
 import android.net.Uri
 import android.os.*
-import android.support.v4.util.ArraySet
 import android.util.Log
 import com.orhanobut.logger.Logger
-import ryey.easer.commons.local_plugin.operationplugin.OperationData
+import ryey.easer.commons.local_skill.operationskill.OperationData
 import ryey.easer.core.RemotePluginCommunicationHelper.C
 import ryey.easer.plugin.operation.Category
 import ryey.easer.remote_plugin.RemoteOperationData
@@ -68,7 +67,7 @@ class RemotePluginRegistryService : Service() {
         mFilter.addAction(RemotePlugin.ACTION_RESPONSE_PLUGIN_INFO)
     }
 
-    private val operationPluginInfos = ArraySet<RemoteOperationPluginInfo>()
+    private val operationPluginInfos = androidx.collection.ArraySet<RemoteOperationPluginInfo>()
     fun infoForId(id: String): RemoteOperationPluginInfo? {
         for (info in operationPluginInfos) {
             if (info.pluginId == id)
@@ -82,7 +81,7 @@ class RemotePluginRegistryService : Service() {
     private lateinit var incomingMessenger: Messenger
 
     override fun onCreate() {
-        ServiceHelper.startNotification(this)
+        ServiceUtils.startNotification(this)
         handlerThread.start()
         incomingHandler = IncomingHandler(this, handlerThread)
         incomingMessenger = Messenger(incomingHandler)
@@ -91,7 +90,7 @@ class RemotePluginRegistryService : Service() {
     }
 
     override fun onDestroy() {
-        ServiceHelper.stopNotification(this)
+        ServiceUtils.stopNotification(this)
         unregisterReceiver(mReceiver)
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR2) {
             handlerThread.quitSafely()

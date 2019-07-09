@@ -1,4 +1,5 @@
-Easer [![Build Status](https://travis-ci.org/renyuneyun/Easer.svg?branch=master)](https://travis-ci.org/renyuneyun/Easer) [![weblate](https://hosted.weblate.org/widgets/easer/-/svg-badge.svg)](https://hosted.weblate.org/engage/easer/?utm_source=widget) [![codecov](https://codecov.io/gh/renyuneyun/Easer/branch/master/graph/badge.svg)](https://codecov.io/gh/renyuneyun/Easer) [![matrix-chat](https://matrix.to/img/matrix-badge.svg)](https://matrix.to/#/#Easer:matrix.org)  [ ![Download](https://api.bintray.com/packages/renyuneyun/Android/Easer/images/download.svg) ](https://bintray.com/renyuneyun/Android/Easer/_latestVersion)
+Easer [![Build Status](https://travis-ci.org/renyuneyun/Easer.svg?branch=master)](https://travis-ci.org/renyuneyun/Easer) [![weblate](https://hosted.weblate.org/widgets/easer/-/svg-badge.svg)](https://hosted.weblate.org/engage/easer/?utm_source=widget) [![codecov](https://codecov.io/gh/renyuneyun/Easer/branch/master/graph/badge.svg)](https://codecov.io/gh/renyuneyun/Easer) [ ![Download](https://api.bintray.com/packages/renyuneyun/Android/Easer/images/download.svg) ](https://bintray.com/renyuneyun/Android/Easer/_latestVersion)  
+[![matrix-chat](https://matrix.to/img/matrix-badge.svg)](https://matrix.to/#/#Easer:matrix.org) [![Backers on Open Collective](https://opencollective.com/Easer/backers/badge.svg)](Contributor.md)
 =======
 [<img src="https://f-droid.org/badge/get-it-on.png"
       alt="Get it on F-Droid"
@@ -16,23 +17,23 @@ If you are looking for the description of Easer's functionality, please refer to
 Extending Easer
 ------
 
-There are three main topics of adding functions to Easer: *mechanism*, *local plugin*, and *remote plugin*.
+There are three main topics of adding functions to Easer: *mechanism*, *skills* (used to be called *local plugin)*, and *remote skill* (*plugin*).
 
 *Mechanism* is the core part of Easer, and adding this requires a good understanding of Easer's code; optimization and documenting are also welcome.
-For most cases, what needed is to add new *Event*, *Condition* and *Operation*, which is done by adding *local plugin* or *remote plugin*.
+For most cases, what needed is to add new *Event*, *Condition* and *Operation*, which is done by adding *skill* or *remote skill* (*plugin*).
 
-### Local Plugin
+### Skill
 
-Adding a *local plugin* needs to add your *Event*, *Condition* or *Operation* to the `plugins` package of Easer's code. There are a few scripts to simplify the process, and existing plugins can act as examples.
+Adding a *skill* needs to add your *Event*, *Condition* or *Operation* to the `skills` package of Easer's code. There are a few scripts to simplify the process, and existing skills can act as examples.
 
 Details are described in [this document](https://renyuneyun.github.io/Easer/en/EXTEND).
 
-### Remote Plugin
+### Remote Skill (Plugin)
 
-*Remote Plugin* is introduced in v0.7, aiming at using standalone applications to extend Easer's functionality.
-Each *remote plugin* is a stanalone app; it is in theory also possible to include multiple *remote plugins* in one app. Note this feature is rather new and the interface might not be stable yet (though it's unlikely the interface will change much).
+*Remote Skill* (called *Remote Plugin* previously) is introduced in v0.7, aiming at using standalone applications to extend Easer's functionality.
+Each *remote skill* is a stanalone app; it is in theory also possible to include multiple *remote skills* in one app. Note this feature is rather new and the interface might not be stable yet (though it's unlikely the interface will change much).
 
-Currently, only *Operation* can be extended as *remote plugins*. [This repo] is an example implementation of *remote operation plugin*, as well as documents. Better documentations are also welcome.
+Currently, only *Operation* can be extended as *remote skills*. [This repo](https://github.com/renyuneyun/EaserOperationPluginExample) is an example implementation of *remote operation plugin*, as well as documents. Better documentations are also welcome.
 
 
 Support Easer
@@ -61,9 +62,32 @@ If you would like to make a donation, please see [DONATE](https://renyuneyun.git
 
 Any amount of help is appreciated.
 
-Copyright
+Acknowledgement
 ------
-Copyright (c) 2016 - 2018 Rui Zhao (renyuneyun) <renyuneyun@gmail.com>
+
+### Contributors and Backers
+
+The development of Easer receives the support and donation from the community. Thank you guys.
+
+The [Contributor][Contributor.md] document lists this in more detail.
+
+### Third-party
+
+* [Logger](https://github.com/orhanobut/logger): Apache License v2
+* [android-flowlayout](https://github.com/ApmeM/android-flowlayout): Apache License v2
+* [Guava](https://github.com/google/guava): Apache License v2
+* [StickyListHeaders](https://github.com/emilsjolander/StickyListHeaders): Apache License v2
+* [RecyclerTreeView](https://github.com/TellH/RecyclerTreeView): Apache License v2
+* [AppIntro](https://github.com/AppIntro/AppIntro): Apache License v2
+* [GraphView](https://github.com/Team-Blox/GraphView): Apache License v2
+* [locale-helper-android](https://github.com/zeugma-solutions/locale-helper-android): Apache License v2
+* [material-about-library](https://github.com/daniel-stoneuk/material-about-library): Apache License v2
+
+* Drawable files named as `*-fa-*` all come from [fontawesome](https://fontawesome.com/): CC-BY 4.0
+
+Licensing
+------
+Copyright (c) 2016 - 2019 Rui Zhao (renyuneyun) <renyuneyun@gmail.com>
 
 Unless otherwise stated, the program is licensed under GPLv3+ (See LICENSE)
 
@@ -76,11 +100,3 @@ Because of the design of Easer, functionality will eventually become modules / p
 
 In fact, ensuring that derived works / plugins are licensed under the **GPL** is unnecessary -- they only need to be **open source**. However, GPL is the only license (that I know of) which requires that derived works / plugins are open sourced, so it's the only choice.
 
-Third-party
------
-* [Logger](https://github.com/orhanobut/logger): Apache License v2
-* [android-flowlayout](https://github.com/ApmeM/android-flowlayout): Apache License v2
-* [Guava](https://github.com/google/guava): Apache License v2
-* [StickyListHeaders](https://github.com/emilsjolander/StickyListHeaders): Apache License v2
-
-* Drawable files named as `*-fa-*` all come from [fontawesome](https://fontawesome.com/): CC-BY 4.0

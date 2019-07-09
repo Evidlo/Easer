@@ -6,12 +6,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ryey.easer.core.ui.data.script_tree_list.RecyclerViewWithContext
+    <ryey.easer.core.ui.data.script.script_tree_list.RecyclerViewWithContext
         android:id="@+id/recyclerView_script"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
-    <android.support.design.widget.FloatingActionButton
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

@@ -1,10 +1,139 @@
 CHANGELOG
 ======
 
+* v0.7.7.4: Display permission in skill settings && i18n
+	* Permission status is now displayed in skill settings
+	* PluginOutlineFragment will redirect to skill settings
+	* i18n update
+
+* v0.7.7.3: Fixes && Dev changes && i18n update
+	* Fix crash log not working
+	* Fix Condition can have empty names
+	* Dev changes: better async backend & better naming
+	* Danish i18n update
+
+* v0.7.7.2: Show status in Pivot && i18n update
+	* The Pivot page now shows the status of each Script (a color dot at top-left)
+	* Update dependencies
+	* Update for i18n: Danish, Japanese, Italian, Norwegian Bokmål
+
+* v0.7.7.1: Categorized Event and Condition selection && Minor improvements
+	* Change Event and Condition's ViewPager to a list selection similar to Profile
+	* Use SourceCategory for categories of Event and Condition
+	* Slight UI improvement for TimerUSource
+	* Improved Chinese
+	* Update Danish translation
+
+* v0.7.7: Introduce USource && More shared Event / Condition && Introduce SourceCategory && Code clean up && i18n
+	* Introduce `USource` as a uniformed way to define `Event` and `Condition`
+	* Converted existing shared `Event` and `Condition` to `USource`
+	* Added more `USource` (`BluetoothEnabled`, `WifiEnabled`)
+	* Introduce `SourceCategory` (no UI yet)
+		* Assigned to existing skills
+	* Code re-arrangements
+	* New locale: Ukrainian
+	* i18n update
+
+* v0.7.6.2: Fixes && slight UI change && i18n
+	* Fix Dynamics trying to be edited with invalid inputs
+	* Fix Skills in-use can be disabled
+	* Do not enable "Inline Event" for new Scripts
+	* i18n update
+
+* v0.7.6.1: Add crash logs && i18n
+	* Easer now records crash logs too (when external logging enabled)
+		* Under /sdcard/logger/error
+	* i18n update: Italian, Norwegian Bokmål, Danish, Japanese
+
+* v0.7.6: New Conditions && Bug fixes && Rename Plugin to Skill && i18n
+	* Add Ringer mode condition
+	* Add Calendar condition
+	* Bug fixes:
+		* A few bugs of TcpTripEvent
+		* Crash on receiving broadcast for BroadcastEventPlugin
+		* "Default" locale doesn't work
+	* i18n update: German, Italian, Norwegian Bokmål, Japanese
+
+* v0.7.5: Allow to override locale && Better "About" page && i18n
+	* Users can now override locale from settings
+	* Reimplement the "About" page
+	* i18n update:
+		* New language: Portuguese (Brazil)
+		* Updated: Danish, German, Italian, Japanese
+
+* v0.7.4.2: AndroidX && toolkit update && i18n
+	* Migrate the project to AndroidX
+	* Update dependencies and gradle tookits
+	* Better English wording
+	* i18n update: German, Italian, Japanese, Norwegian Bokmål, Danish
+
+* v0.7.4.1: Crash fix && i18n
+	* Fix crash when trying to pick CellLocation
+	* Slightly improved English
+	* i18n updates:
+		* New: Italian
+		* Updated: German, Japanese, Norwegian Bokmål
+
+* v0.7.4: New Pivot graph && Remove deprecated functions && i18n update
+	* API 16+ is now required (because of GraphView)
+	* New Pivot graph for displaying the structure of Scripts
+		* Expansion is expected in future versions
+	* Remove "passive mode"
+	* Remove old formatting replacer
+	* i18n update:
+		* new languages: Korean & Italian
+		* updated translation: German
+
+* v0.7.3.1: Small bug fixes && i18n update
+	* Fix app_name being incorrect in several languages
+	* Treat invalid CellLocation as invalid
+	* Fix "launch Activity" not checked by default
+	* i18n update:
+		* new language: Swedish
+		* updated translation: Danish, Japanese
+
+* v0.7.3: Better welcome page && PlayMediaOperationPlugin && Other changes && i18n
+	* A series of dedicated welcome pages are now used
+	* New operation: PlayMediaOperationPlugin
+	* Allow to specify class in LaunchAppOperationPlugin
+	* i18n update: Danish & German & Japanese
+
+* v0.7.2.4.1: Fix wrong user notification of passive-mode
+	* Passive mode should be enabled
+
+* v0.7.2.4: Bug fixes & Slight changes & i18n update
+	* Fix StateControlOperationPlugin causes freeze
+	* Fix command not executed correctly
+	* Alert for near future change (if necessary)
+	* Notification slight change
+	* i18n: Chinese & Danish & Japanese & Norwegian Bokmål
+
+* v0.7.2.3: Record CellLocation for a timespan && fix && i18n
+	* Now records CellLocation for a timespan, instead of one-shot
+	* Fix renaming Condition not correctly changing inline ConditionEvent
+	* i18n:
+		* Chinese
+		* Norwegian Bokmål
+
+* v0.7.2.2: More Dynamics
+	* Add more Dynamics
+	* Update German Translation
+
+* v0.7.2.1: Bug fixes
+	* Fix NetworkTransmission not working
+	* Fix DayOfWeek not correctly scheduled
+	* Fix SendBroadcast with extras not working
+	* Translation update
+
 * v0.7.2: Tree List support && Translation update
 	* Add tree list support for Script
-	* French Translation update
-	* ...
+	* Translations update
+	* New translations:
+		* Dutch
+		* Russian
+	* Localized Chinese for Taiwan variant through Weblate
+		* Note: as described in the README.md, OpenCC will be used for localized Chinese variants. Changes made on Weblate may be lost later.
+	* Small code refinement
 
 * v0.7.1.1: Bug fixes && Translation update
 	* Fix AirplaneMode not correctly working
@@ -411,7 +540,7 @@ CHANGELOG
 		*  Add many *nullality* annotations to plugins (including data and views)
 		*  Use exception instead of `null` for data retrival (this seems to be more natural in Java)
 		*  Resolve some lint warnings
-			*  Make the `Handler` in `ryey.easer.plugins.operation.brightness.DumbSettingBrightnessActivity` `static`
+			*  Make the `Handler` in `skills.operation.brightness.DumbSettingBrightnessActivity` `static`
 			*  Add some `final`s
 			*  Use `StringBuilder` in some places (instead of raw `String` manipulation)
 			*  Fix a few javaDoc
@@ -506,7 +635,7 @@ CHANGELOG
 	* Remove unneeded codes
 		* remove the need of `EventData.pluginClass()`
 		* remove the need of static method `OerationPlugin.pname()` and `EventPlugin.pname()` in the implementation of event plugins (not in the interface)
-	* Rename `ryey.easer.core.ui.edit.PluginViewFragment` to `ryey.easer.core.ui.edit.PluginViewContainerFragment` to avoid name duplication with `ryey.easer.plugins.PluginViewFragment` (which was introduced in v0.4)
+	* Rename `ryey.easer.core.ui.edit.PluginViewFragment` to `ryey.easer.core.ui.edit.PluginViewContainerFragment` to avoid name duplication with `skills.PluginViewFragment` (which was introduced in v0.4)
 	* More tests
 
 * v0.4: Change `ContentLayout` to `PluginViewFragment` && add permission notification on Outline && other change

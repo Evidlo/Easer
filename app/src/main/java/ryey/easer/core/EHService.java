@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016 - 2018 Rui Zhao <renyuneyun@gmail.com>
+ * Copyright (c) 2016 - 2019 Rui Zhao <renyuneyun@gmail.com>
  *
  * This file is part of Easer.
  *
@@ -35,19 +35,21 @@ import android.os.Binder;
 import android.os.Build;
 import android.os.ConditionVariable;
 import android.os.IBinder;
-import android.support.annotation.NonNull;
-import android.support.v4.app.NotificationCompat;
-import android.support.v4.content.ContextCompat;
+
+import androidx.annotation.NonNull;
+import androidx.core.app.NotificationCompat;
+import androidx.core.content.ContextCompat;
 
 import com.orhanobut.logger.Logger;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 import ryey.easer.R;
-import ryey.easer.SettingsHelper;
+import ryey.easer.SettingsUtils;
 import ryey.easer.core.data.ScriptTree;
 import ryey.easer.core.data.storage.ScriptDataStorage;
 import ryey.easer.core.log.ActivityLogService;
@@ -151,12 +153,6 @@ public class EHService extends Service {
     public static void start(Context context) {
         Intent intent = new Intent(context, EHService.class);
         ContextCompat.startForegroundService(context, intent);
-//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-////            context.startForegroundService(intent);
-//            ContextCompat.startForegroundService(context, intent);
-//        } else {
-//            context.startService(intent);
-//        }
     }
 
     public static void stop(Context context) {
@@ -171,7 +167,7 @@ public class EHService extends Service {
     }
 
     private void startNotification() {
-        if (!SettingsHelper.showNotification(this))
+        if (!SettingsUtils.showNotification(this))
             return;
 
         NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
@@ -195,7 +191,6 @@ public class EHService extends Service {
                 this, REQ_CODE, new Intent(this, MainActivity.class), 0);
         builder
                 .setSmallIcon(R.mipmap.ic_launcher)
-                .setContentTitle(getString(R.string.easer))
                 .setContentText(getString(
                         R.string.text_notification_running_indicator_content,
                         getString(R.string.easer)))
@@ -205,7 +200,7 @@ public class EHService extends Service {
 
         Notification indicatorNotification = builder.build();
 
-        if (SettingsHelper.runInForeground(this)) {
+        if (SettingsUtils.runInForeground(this)) {
             startForeground(NOTIFICATION_ID, indicatorNotification);
         } else {
             notificationManager.notify(NOTIFICATION_ID, indicatorNotification);
@@ -213,9 +208,9 @@ public class EHService extends Service {
     }
 
     private void stopNotification() {
-        if (!SettingsHelper.showNotification(this))
+        if (!SettingsUtils.showNotification(this))
             return;
-        if (SettingsHelper.runInForeground(this)) {
+        if (SettingsUtils.runInForeground(this)) {
 
         } else {
             NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
@@ -330,6 +325,14 @@ public class EHService extends Service {
                 }
             }
             return false;
+        }
+
+        public List<Lotus.Status> lotusStatus() {
+            List<Lotus.Status> statusList = new LinkedList<>();
+            for (Lotus lotus : mLotusArray) {
+                statusList.addAll(lotus.statusRec());
+            }
+            return statusList;
         }
     }
 

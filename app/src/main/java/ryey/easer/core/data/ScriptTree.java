@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016 - 2018 Rui Zhao <renyuneyun@gmail.com>
+ * Copyright (c) 2016 - 2019 Rui Zhao <renyuneyun@gmail.com>
  *
  * This file is part of Easer.
  *
@@ -19,15 +19,17 @@
 
 package ryey.easer.core.data;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import java.util.LinkedList;
 import java.util.List;
 
-import ryey.easer.commons.local_plugin.eventplugin.EventData;
+import ryey.easer.commons.local_skill.eventskill.EventData;
 
 /*
  * Events are linked together as trees. This class represents that structure and relevant methods.
+ *
+ * TODO: Remove delegations which don't appear to be relevant to the "script tree" (but rather, related to the exact Script when triggered).
  */
 final public class ScriptTree {
     final ScriptStructure data;

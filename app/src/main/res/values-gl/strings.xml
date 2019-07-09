@@ -1,6 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources><string name="easer">Easer</string>
-    <string name="app_name">\@string/easer</string>
     <string name="drawer_tip">Fai máis doada a túa vida co Ease!</string>
     <string name="title_outline">Contorna</string>
     <string name="title_operation">Operación</string>
@@ -56,7 +55,6 @@
     <string name="button_ok">Feito</string>
 
     <string name="text_lack_permission">O Easer NON ten tódolos permisos que precisa.</string>
-    <string name="button_request_permission">Fornecer permisos</string>
 
     <string name="text_notification_running_indicator_content">%s está a funcionar no segundo plano</string>
 
@@ -87,16 +85,15 @@
 
     <string name="prompt_prevented_for_permission">O Easer precisa de máis permisos &lt;%s&gt; para esta funionalidade.</string>
 
-    <string name="appInformation">Faga máis doada a túa vida facendo de xeito automático accións / operacións da rutina no teu teléfono(s).
+    <string name="text_app_description">Faga máis doada a túa vida facendo de xeito automático accións / operacións da rutina no teu teléfono(s).
 \n Encadea diferentes acontecementos e deixa que se fagan as súas correspondentes accións. Xa non é preciso telos en conta!
 \n Esta aplicación foi inspirada polo mecanismo de \"perfil\" do CyanogenMod e IFTTT. A lóxica orixinal era mudar de xeito automático o perfil nun intre determinado ou nas conexións WiFi específicas, e despois expandiuse para un emprego máis xeral.
 \n Lembranza: O Easer aínda está en desenvolvemento. Pode conter erros e a interface do usuario definitivamente precisa dunha mellora. Os plans actuais descríbense no ficheiro TODO.en.md (ou TODO.md se pode ler chinés) no repositorio. Se ti estás interesado, por favor, bota unha ollada.</string>
 
-    <string name="liscence_stringa">Este programa é de software ceibe ou libre: pode redistribuilo e/ou modificalo segundo os termos da Licenza Pública Xeral do GNU publicada pola Free Software Foundation, xa sexa a versión 3 da Licenza ou (á túa escolla) cualquera versión seguinte.</string>
-
-    <string name="liscence_stringb">Este programa distribúese ca espranza de que sexa de utilidade, pero SEN NINGÚN GARANTE; sen nin sequera o garante implícito da COMERCIABILIDADE ou APTITUDE PARA UN PROPÓSITO PARTICULAR. Olla a Licenza Pública Xeral do GNU para máis detalles.</string>
-
-    <string name="liscence_stringc">Deberías de recibir unha copia da Licenza Pública Xeral do GNU xunto con este programa. Se non, olla http://www.gnu.org/licenses/</string>
+    <string name="text_license">Este programa é de software ceibe ou libre: pode redistribuilo e/ou modificalo segundo os termos da Licenza Pública Xeral do GNU publicada pola Free Software Foundation, xa sexa a versión 3 da Licenza ou (á túa escolla) cualquera versión seguinte.\n
+        Este programa distribúese ca espranza de que sexa de utilidade, pero SEN NINGÚN GARANTE; sen nin sequera o garante implícito da COMERCIABILIDADE ou APTITUDE PARA UN PROPÓSITO PARTICULAR. Olla a Licenza Pública Xeral do GNU para máis detalles.\n
+        Deberías de recibir unha copia da Licenza Pública Xeral do GNU xunto con este programa. Se non, olla http://www.gnu.org/licenses/
+    </string>
 
     <string name="pref_category_functionality">Funcionalidade</string>
     <string name="pref_category_personalise">Persoalizar</string>
@@ -122,12 +119,8 @@
     <string name="pref_cooldown_summary">Intre mínimo entre dous activadores do mesmo acontecemento</string>
     <string name="cooldown_time_illformed">O número non debe ser inferior a 0 e non moi grande para caber nun número entero</string>
 
-    <string name="pref_passive_mode_title">Modo pasivo</string>
-    <string name="pref_passive_mode_summary_on">Escoitar ó acontecemento; Non hai verificación cando está activada</string>
-    <string name="pref_passive_mode_summary_off">Comproba o estado da satisfación cando (cada) acontecemento está activado</string>
-
-    <string name="pref_enabled_plugins_title">Engadidos activados</string>
-    <string name="pref_enabled_plugins_summary">Activar ou desactivar certos engadidos</string>
+    <string name="pref_enabled_skills_title">Engadidos activados</string>
+    <string name="pref_enabled_skills_summary">Activar ou desactivar certos engadidos</string>
 
     <string name="pref_use_12_hour_clock_title">Emprega-lo formato das 12h na hora</string>
 
@@ -146,7 +139,7 @@
     <string name="pref_foreground_title">Executa o servizo en primeiro plano</string>
     <string name="pref_foreground_summary">Fai que o servizo sexa menos doado de ser detido polo sistema. Amosará unha notificación. Non se pode desactivar no Android 8+ debido á esixencia do sistema.</string>
 
-    <string name="message_plugin_not_compatible">Este engadido non é compatíbel con este dispositivo.</string>
+    <string name="message_skill_not_compatible">Este engadido non é compatíbel con este dispositivo.</string>
 
     <string name="message_convert_data_start">Estasen a converte-los datos.</string>
     <string name="message_convert_data_finish">Datos convertidos.</string>
@@ -154,14 +147,6 @@
     <string name="message_convert_data_error">Ocorreu un erro ó converte-los datos. Olla o rexistro para máis detalles.</string>
 
     <string name="title_welcome_message">Benvido</string>
-    <string name="welcome_message">Benvido a usar Easer!
-\nAgardamos que che goste esta aplicación :)
-\n
-\nLe isto denantes de comezar:
-\n 1. Fornece ós permisos correspondentes a Easer antes de empregar acontecementos e perfís relevantes.
-\n 2. Conecta acontecementos coma <a href="https://en.wikipedia.org/wiki/Tree_structure">este</a>. É actualmente o único xeito de compor acontecementos.
-\n
-\nOlla tamén o <a href="https://github.com/renyuneyun/Easer/wiki/FAQ">FAQ</a> (axuda) na Wiki do proxecto.</string>
 
     <string name="alert_update_storage_data_title">Atopouse unha versión antiga dos datos</string>
     <string name="alert_update_storage_data">Os teus datos foron xerados nunha versión anterior. Suxíroche actualizar cara a nova versión ou o Easer pode non funcionar ben. Podes facelo seleccionando \"Converter datos\" nos axustes.</string>

@@ -31,7 +31,7 @@ tmpl_copyright = '''/*
  */
 '''
 
-tmpl_plugin_view_fragment = '''package {package};
+tmpl_skill_view_fragment = '''package {package};
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -40,11 +40,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import ryey.easer.commons.local_plugin.InvalidDataInputException;
-import ryey.easer.plugins.PluginViewFragment;
-import ryey.easer.commons.local_plugin.ValidData;
+import ryey.easer.commons.local_skill.InvalidDataInputException;
+import ryey.easer.skills.SkillViewFragment;
+import ryey.easer.commons.local_skill.ValidData;
 
-public class {view_fragment} extends PluginViewFragment<{data}> {{
+public class {view_fragment} extends SkillViewFragment<{data}> {{
 
     @NonNull
     @Override
@@ -72,7 +72,7 @@ import android.os.Parcel;
 
 import org.junit.Test;
 
-import ryey.easer.plugins.TestHelper;
+import ryey.easer.skills.TestHelper;
 
 import static org.junit.Assert.assertEquals;
 
@@ -89,19 +89,19 @@ public class {androidTest$data} {{
 }}
 '''
 
-tmpl_operation_plugin = '''package {package};
+tmpl_operation_skill = '''package {package};
 
 import android.app.Activity;
 import android.content.Context;
 import android.support.annotation.NonNull;
 
-import ryey.easer.plugins.PluginViewFragment;
-import ryey.easer.commons.local_plugin.operationplugin.OperationDataFactory;
-import ryey.easer.plugins.operation.OperationLoader;
-import ryey.easer.commons.local_plugin.operationplugin.OperationPlugin;
-import ryey.easer.commons.local_plugin.operationplugin.PrivilegeUsage;
+import ryey.easer.skills.SkillViewFragment;
+import ryey.easer.commons.local_skill.operationskill.OperationDataFactory;
+import ryey.easer.skills.operation.OperationLoader;
+import ryey.easer.commons.local_skill.operationskill.OperationSkill;
+import ryey.easer.commons.local_skill.operationskill.PrivilegeUsage;
 
-public class {plugin} implements OperationPlugin<{data}> {{
+public class {skill} implements OperationSkill<{data}> {{
 
     @NonNull
     @Override
@@ -148,7 +148,7 @@ public class {plugin} implements OperationPlugin<{data}> {{
 
     @NonNull
     @Override
-    public PluginViewFragment<{data}> view() {{
+    public SkillViewFragment<{data}> view() {{
         return new {view_fragment}();
     }}
 
@@ -165,9 +165,9 @@ tmpl_operation_data_factory = '''package {package};
 
 import android.support.annotation.NonNull;
 
-import ryey.easer.commons.local_plugin.IllegalStorageDataException;
-import ryey.easer.commons.local_plugin.ValidData;
-import ryey.easer.commons.local_plugin.operationplugin.OperationDataFactory;
+import ryey.easer.commons.local_skill.IllegalStorageDataException;
+import ryey.easer.commons.local_skill.ValidData;
+import ryey.easer.commons.local_skill.operationskill.OperationDataFactory;
 import ryey.easer.plugin.PluginDataFormat;
 
 class {data_factory} implements OperationDataFactory<{data}> {{
@@ -201,9 +201,9 @@ import android.support.annotation.Nullable;
 
 import java.util.Set;
 
-import ryey.easer.commons.local_plugin.IllegalStorageDataException;
-import ryey.easer.commons.local_plugin.dynamics.SolidDynamicsAssignment;
-import ryey.easer.commons.local_plugin.operationplugin.OperationData;
+import ryey.easer.commons.local_skill.IllegalStorageDataException;
+import ryey.easer.commons.local_skill.dynamics.SolidDynamicsAssignment;
+import ryey.easer.commons.local_skill.operationskill.OperationData;
 import ryey.easer.plugin.PluginDataFormat;
 
 public class {data} implements OperationData {{
@@ -278,8 +278,8 @@ tmpl_operation_loader = '''package {package};
 import android.content.Context;
 import android.support.annotation.NonNull;
 
-import ryey.easer.commons.local_plugin.ValidData;
-import ryey.easer.plugins.operation.OperationLoader;
+import ryey.easer.commons.local_skill.ValidData;
+import ryey.easer.skills.operation.OperationLoader;
 
 public class {loader} extends OperationLoader<{data}> {{
     {loader}(Context context) {{
@@ -293,20 +293,20 @@ public class {loader} extends OperationLoader<{data}> {{
 }}
 '''
 
-tmpl_event_plugin = '''package {package};
+tmpl_event_skill = '''package {package};
 
 import android.app.Activity;
 import android.content.Context;
 import android.support.annotation.NonNull;
 
 import ryey.easer.R;
-import ryey.easer.plugins.PluginViewFragment;
-import ryey.easer.commons.local_plugin.ValidData;
-import ryey.easer.plugins.event.AbstractSlot;
-import ryey.easer.commons.local_plugin.eventplugin.EventDataFactory;
-import ryey.easer.commons.local_plugin.eventplugin.EventPlugin;
+import ryey.easer.skills.SkillViewFragment;
+import ryey.easer.commons.local_skill.ValidData;
+import ryey.easer.skills.event.AbstractSlot;
+import ryey.easer.commons.local_skill.eventskill.EventDataFactory;
+import ryey.easer.commons.local_skill.eventskill.EventSkill;
 
-public class {plugin} implements EventPlugin<{data}> {{
+public class {skill} implements EventSkill<{data}> {{
 
     @NonNull
     @Override
@@ -341,7 +341,7 @@ public class {plugin} implements EventPlugin<{data}> {{
 
     @NonNull
     @Override
-    public PluginViewFragment<{data}> view() {{
+    public SkillViewFragment<{data}> view() {{
         return new {view_fragment}();
     }}
 
@@ -362,9 +362,9 @@ tmpl_event_data_factory = '''package {package};
 
 import android.support.annotation.NonNull;
 
-import ryey.easer.commons.local_plugin.IllegalStorageDataException;
-import ryey.easer.commons.local_plugin.ValidData;
-import ryey.easer.commons.local_plugin.eventplugin.EventDataFactory;
+import ryey.easer.commons.local_skill.IllegalStorageDataException;
+import ryey.easer.commons.local_skill.ValidData;
+import ryey.easer.commons.local_skill.eventskill.EventDataFactory;
 import ryey.easer.plugin.PluginDataFormat;
 
 class {data_factory} implements EventDataFactory<{data}> {{
@@ -396,9 +396,9 @@ import android.os.Parcel;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
-import ryey.easer.commons.local_plugin.IllegalStorageDataException;
-import ryey.easer.commons.local_plugin.dynamics.Dynamics;
-import ryey.easer.plugins.event.AbstractEventData;
+import ryey.easer.commons.local_skill.IllegalStorageDataException;
+import ryey.easer.commons.local_skill.dynamics.Dynamics;
+import ryey.easer.skills.event.AbstractEventData;
 import ryey.easer.plugin.PluginDataFormat;
 
 public class {data} extends AbstractEventData {{
@@ -468,7 +468,7 @@ tmpl_event_slot = '''package {package};
 
 import android.content.Context;
 
-import ryey.easer.plugins.event.AbstractSlot;
+import ryey.easer.skills.event.AbstractSlot;
 
 public class {slot} extends AbstractSlot<{data}> {{
 
@@ -490,30 +490,23 @@ public class {slot} extends AbstractSlot<{data}> {{
         //TODO
     }}
 
-    /**
-     * {{@inheritDoc}}
-     */
-    @Deprecated
-    @Override
-    public void check() {{
-    }}
 }}
 '''
 
-tmpl_condition_plugin = '''package {package};
+tmpl_condition_skill = '''package {package};
 
 import android.app.Activity;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.support.annotation.NonNull;
 
-import ryey.easer.plugins.PluginViewFragment;
-import ryey.easer.commons.local_plugin.ValidData;
-import ryey.easer.commons.local_plugin.conditionplugin.ConditionDataFactory;
-import ryey.easer.commons.local_plugin.conditionplugin.ConditionPlugin;
-import ryey.easer.commons.local_plugin.conditionplugin.Tracker;
+import skills.SkillViewFragment;
+import ryey.easer.commons.local_skill.ValidData;
+import ryey.easer.commons.local_skill.conditionskill.ConditionDataFactory;
+import ryey.easer.commons.local_skill.conditionskill.ConditionSkill;
+import ryey.easer.commons.local_skill.conditionskill.Tracker;
 
-public class {plugin} implements ConditionPlugin<{data}> {{
+public class {skill} implements ConditionSkill<{data}> {{
 
     @NonNull
     @Override
@@ -548,7 +541,7 @@ public class {plugin} implements ConditionPlugin<{data}> {{
 
     @NonNull
     @Override
-    public PluginViewFragment<{data}> view() {{
+    public SkillViewFragment<{data}> view() {{
         return new {view_fragment}();
     }}
 
@@ -568,9 +561,9 @@ tmpl_condition_data_factory = '''package {package};
 
 import android.support.annotation.NonNull;
 
-import ryey.easer.commons.local_plugin.IllegalStorageDataException;
-import ryey.easer.commons.local_plugin.ValidData;
-import ryey.easer.commons.local_plugin.conditionplugin.ConditionDataFactory;
+import ryey.easer.commons.local_skill.IllegalStorageDataException;
+import ryey.easer.commons.local_skill.ValidData;
+import ryey.easer.commons.local_skill.conditionskill.ConditionDataFactory;
 import ryey.easer.plugin.PluginDataFormat;
 
 class {data_factory} implements ConditionDataFactory<{data}> {{
@@ -601,8 +594,8 @@ tmpl_condition_data = '''package {package};
 import android.os.Parcel;
 import android.support.annotation.NonNull;
 
-import ryey.easer.commons.local_plugin.IllegalStorageDataException;
-import ryey.easer.commons.local_plugin.conditionplugin.ConditionData;
+import ryey.easer.commons.local_skill.IllegalStorageDataException;
+import ryey.easer.commons.local_skill.conditionskill.ConditionData;
 import ryey.easer.plugin.PluginDataFormat;
 
 public class {data} implements ConditionData {{
@@ -676,7 +669,7 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.support.annotation.NonNull;
 
-import ryey.easer.plugins.condition.SkeletonTracker;
+import ryey.easer.skills.condition.SkeletonTracker;
 
 public class {tracker} extends SkeletonTracker<{data}> {{
 

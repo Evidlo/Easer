@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016 - 2018 Rui Zhao <renyuneyun@gmail.com>
+ * Copyright (c) 2016 - 2019 Rui Zhao <renyuneyun@gmail.com>
  *
  * This file is part of Easer.
  *
@@ -21,20 +21,21 @@ package ryey.easer.core;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
+
+import androidx.annotation.NonNull;
 
 import com.orhanobut.logger.Logger;
 
 import java.util.Calendar;
 import java.util.concurrent.ExecutorService;
 
-import ryey.easer.SettingsHelper;
-import ryey.easer.commons.local_plugin.eventplugin.EventData;
-import ryey.easer.commons.local_plugin.eventplugin.EventPlugin;
-import ryey.easer.commons.local_plugin.eventplugin.Slot;
+import ryey.easer.SettingsUtils;
+import ryey.easer.commons.local_skill.eventskill.EventData;
+import ryey.easer.commons.local_skill.eventskill.EventSkill;
+import ryey.easer.commons.local_skill.eventskill.Slot;
 import ryey.easer.core.data.EventStructure;
 import ryey.easer.core.data.ScriptTree;
-import ryey.easer.plugins.LocalPluginRegistry;
+import ryey.easer.skills.LocalSkillRegistry;
 
 /*
  * Note: old document; may be outdated.
@@ -66,7 +67,7 @@ class EventLotus extends Lotus {
         mSlot = nodeToSlot(scriptTree);
         mSlot.register(uri);
 
-        cooldownInMillisecond = SettingsHelper.coolDownInterval(context) * 1000;
+        cooldownInMillisecond = SettingsUtils.coolDownInterval(context) * 1000;
     }
 
     private <T extends EventData> Slot<T> nodeToSlot(ScriptTree node) {
@@ -75,7 +76,7 @@ class EventLotus extends Lotus {
         //noinspection unchecked
         T data = (T) scenario.getEventData();
         //noinspection unchecked
-        EventPlugin<T> plugin = LocalPluginRegistry.getInstance().event().findPlugin(data);
+        EventSkill<T> plugin = LocalSkillRegistry.getInstance().event().findSkill(data);
         if (scenario.isTmpEvent()) {
             slot = plugin.slot(context, data);
         } else {
@@ -84,23 +85,11 @@ class EventLotus extends Lotus {
         return slot;
     }
 
-    private synchronized void check() {
-        executorService.submit(new Runnable() {
-            @Override
-            public void run() {
-                mSlot.check();
-            }
-        });
-    }
-
     protected synchronized void onListen() {
         executorService.submit(new Runnable() {
             @Override
             public void run() {
                 mSlot.listen();
-                if (!SettingsHelper.passiveMode(context)) {
-                    check();
-                }
             }
         });
     }

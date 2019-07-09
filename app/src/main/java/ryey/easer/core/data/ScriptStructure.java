@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016 - 2018 Rui Zhao <renyuneyun@gmail.com>
+ * Copyright (c) 2016 - 2019 Rui Zhao <renyuneyun@gmail.com>
  *
  * This file is part of Easer.
  *
@@ -19,10 +19,10 @@
 
 package ryey.easer.core.data;
 
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 
-import ryey.easer.commons.local_plugin.dynamics.DynamicsLink;
-import ryey.easer.commons.local_plugin.eventplugin.EventData;
+import ryey.easer.commons.local_skill.dynamics.DynamicsLink;
+import ryey.easer.commons.local_skill.eventskill.EventData;
 
 /*
  * An Event consists of the following data:
@@ -100,19 +100,21 @@ final public class ScriptStructure implements Renameable, Verifiable, WithCreate
         this.active = active;
     }
 
+    @Nullable
     public String getProfileName() {
         return profileName;
     }
 
-    public void setProfileName(String profileName) {
+    public void setProfileName(@Nullable String profileName) {
         this.profileName = profileName;
     }
 
+    @Nullable
     public String getParentName() {
         return parentName;
     }
 
-    public void setParentName(String parentName) {
+    public void setParentName(@Nullable String parentName) {
         this.parentName = parentName;
     }
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016 - 2018 Rui Zhao <renyuneyun@gmail.com>
+ * Copyright (c) 2016 - 2019 Rui Zhao <renyuneyun@gmail.com>
  *
  * This file is part of Easer.
  *
@@ -23,13 +23,13 @@ import android.content.Context;
 
 import java.io.IOException;
 
-import ryey.easer.commons.local_plugin.eventplugin.EventData;
+import ryey.easer.commons.local_skill.eventskill.EventData;
 import ryey.easer.core.data.ConditionStructure;
 import ryey.easer.core.data.EventStructure;
 import ryey.easer.core.data.ScriptStructure;
 import ryey.easer.core.data.storage.backend.ConditionDataStorageBackendInterface;
 import ryey.easer.core.data.storage.backend.json.condition.JsonConditionDataStorageBackend;
-import ryey.easer.plugins.event.condition_event.ConditionEventEventData;
+import ryey.easer.skills.event.condition_event.ConditionEventEventData;
 
 public class ConditionDataStorage extends AbstractDataStorage<ConditionStructure, ConditionDataStorageBackendInterface> {
 
@@ -69,6 +69,7 @@ public class ConditionDataStorage extends AbstractDataStorage<ConditionStructure
         updateScriptsForNewName(scriptDataStorage, oldName, condition);
         EventDataStorage eventDataStorage = new EventDataStorage(context);
         updateConditionEventForNewName(eventDataStorage, oldName, condition.getName());
+        updateInlineConditionEventForNewName(scriptDataStorage, oldName, condition.getName());
     }
 
     private static void updateScriptsForNewName(ScriptDataStorage scriptDataStorage, String oldName, ConditionStructure condition) throws IOException {
@@ -85,14 +86,33 @@ public class ConditionDataStorage extends AbstractDataStorage<ConditionStructure
 
     private static void updateConditionEventForNewName(EventDataStorage eventDataStorage, String oldName, String newName) throws IOException {
         for (String name : eventDataStorage.list()) {
-            EventStructure scenario = eventDataStorage.get(name);
-            EventData eventData = scenario.getEventData();
+            EventStructure event = eventDataStorage.get(name);
+            EventData eventData = event.getEventData();
             if (eventData instanceof ConditionEventEventData) {
                 if (oldName.equals(((ConditionEventEventData) eventData).conditionName)) {
                     ConditionEventEventData newEventData =
                             new ConditionEventEventData((ConditionEventEventData) eventData, newName);
-                    scenario.setEventData(newEventData);
-                    eventDataStorage.update(scenario);
+                    event.setEventData(newEventData);
+                    eventDataStorage.update(event);
+                }
+            }
+        }
+    }
+
+    private static void updateInlineConditionEventForNewName(ScriptDataStorage scriptDataStorage, String oldName, String newName) throws IOException {
+        for (String scriptName : scriptDataStorage.list()) {
+            ScriptStructure script = scriptDataStorage.get(scriptName);
+            if (script.isEvent()) {
+                EventStructure event = script.getEvent();
+                if (event.isTmpEvent()) {
+                    EventData eventData = event.getEventData();
+                    if (eventData instanceof ConditionEventEventData) {
+                        ConditionEventEventData newEventData =
+                                new ConditionEventEventData((ConditionEventEventData) eventData, newName);
+                        event.setEventData(newEventData);
+                        script.setEvent(event);
+                        scriptDataStorage.update(script);
+                    }
                 }
             }
         }

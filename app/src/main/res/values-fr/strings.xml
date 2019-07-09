@@ -1,6 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources><string name="easer">Easer</string>
-    <string name="app_name">easer</string>
     <string name="drawer_tip">Facilitez-vous la vie !</string>
     <string name="title_outline">Aperçu</string>
     <string name="title_operation">Opération</string>
@@ -53,7 +52,6 @@
     <string name="button_ok">OK</string>
 
     <string name="text_lack_permission">Easer n\'a PAS les permissions dont il a besoin.</string>
-    <string name="button_request_permission">Accorder les permissions</string>
 
     <string name="text_title">Titre</string>
     <string name="text_parent_node">Parent</string>
@@ -84,16 +82,15 @@
 
     <string name="prompt_prevented_for_permission">Easer a besoin de la permission &lt;%s&gt; pour cette fonction.</string>
 
-    <string name="appInformation">Simplifiez vous la vie en automatisant des actions / opérations routinières sur votre téléphone.
+    <string name="text_app_description">Simplifiez vous la vie en automatisant des actions / opérations routinières sur votre téléphone.
 \nFaites des liens entre différents événements et laissez leurs actions correspondantes être exécutées. Plus la peine de s\'en préocuper !
 \nCette application a été inspirée par le mécanisme de «profil» de CyanogenMod et IFTTT. L\'intention initiale était de changer automatiquement de profil en fonction de l\'heure ou d\'une connexion WiFi spécifique, et elle a ensuite été étendue à un usage plus général.
 \nRappel : Easer est toujours en développement. Il peut contenir des bugs et l\'inferface a certainement besoin d\'être améliorée. Les projets en cours sont décrits dans le document TODO.en.md (ou TODO.md si vous parlez chinois) dans le dépôt. Si vous êtes intéressés, jetez-y un coup d\'oeil.</string>
 
-    <string name="liscence_stringa">Ce programme est un logiciel libre : vous pouvez le redistribuer et / ou le modifier sous les termes de la Licence publique générale GNU publiée par la Free Software Foundation, soit la version 3 de la licence, ou (selon votre choix) n\'importe quelle autre version ultérieure.</string>
-
-    <string name="liscence_stringb">Ce programme est distribué dans l\'espoir qu\'il sera utile, mais SANS AUCUNE GARANTIE ; sans même la garantie implicite de QUALITÉ MARCHANDE ou D\'ADÉQUATION À UN USAGE PARTICULIER. Voir la Licence publique générale GNU pour plus de détails.</string>
-
-    <string name="liscence_stringc">Vous devriez avoir reçu une copie de la Lience publique générale GNU avec ce programme. Si ce n\'est pas le cas, consultez http://www.gnu.org/licenses/</string>
+    <string name="text_license">Ce programme est un logiciel libre : vous pouvez le redistribuer et / ou le modifier sous les termes de la Licence publique générale GNU publiée par la Free Software Foundation, soit la version 3 de la licence, ou (selon votre choix) n\'importe quelle autre version ultérieure.\n
+        Ce programme est distribué dans l\'espoir qu\'il sera utile, mais SANS AUCUNE GARANTIE ; sans même la garantie implicite de QUALITÉ MARCHANDE ou D\'ADÉQUATION À UN USAGE PARTICULIER. Voir la Licence publique générale GNU pour plus de détails.\n
+        Vous devriez avoir reçu une copie de la Lience publique générale GNU avec ce programme. Si ce n\'est pas le cas, consultez http://www.gnu.org/licenses/
+    </string>
 
     <string name="pref_category_functionality">Fonctionnalité</string>
     <string name="pref_category_personalise">Personnaliser</string>
@@ -118,12 +115,8 @@
     <string name="pref_cooldown_summary">Intervalle minimal entre deux déclenchements d\'un même événement</string>
     <string name="cooldown_time_illformed">"Le nombre ne doit pas être inférieur à 0 et pas trop grand pour tenir dans un entier "</string>
 
-    <string name="pref_passive_mode_title">Mode passif</string>
-    <string name="pref_passive_mode_summary_on">Ecoute de l\'événement ; pas de vérification une fois activé</string>
-    <string name="pref_passive_mode_summary_off">Vérifier l\'état de satisfaction lorsque (chaque) Evénement est activé</string>
-
-    <string name="pref_enabled_plugins_title">Plugins activés</string>
-    <string name="pref_enabled_plugins_summary">Activer ou désactiver certains plugins</string>
+    <string name="pref_enabled_skills_title">Plugins activés</string>
+    <string name="pref_enabled_skills_summary">Activer ou désactiver certains plugins</string>
 
     <string name="pref_use_12_hour_clock_title">Utiliser une horloge sur 12 heures</string>
 
@@ -137,7 +130,7 @@
     <string name="pref_convert_data_title">Convertir les données</string>
     <string name="pref_convert_data_summary">Conversion de toutes les données vers le format recommandé</string>
 
-    <string name="message_plugin_not_compatible">Ce plugin n\'est pas compatible avec cet appareil.</string>
+    <string name="message_skill_not_compatible">Ce plugin n\'est pas compatible avec cet appareil.</string>
 
     <string name="message_convert_data_start">Conversion des données.</string>
     <string name="message_convert_data_finish">Données converties.</string>
@@ -145,14 +138,6 @@
     <string name="message_convert_data_error">Une erreur a eu lieu pendant la conversion des données. Veuillez regarder les logs pour plus de détails.</string>
 
     <string name="title_welcome_message">Bienvenue</string>
-    <string name="welcome_message">Bienvenue sur Easer !
-\nJ\'espère que vous apprécierez cette application :)
-\n
-\nVeuillez lire ceci avant de commencer :
-\n 1. Veuillez donner les permissions nécessaires au fonctionnement de Easer avant d\'utiliser les événements et profils correspodants.
-\n 2. La connexion des événements comme des <a href="https://en.wikipedia.org/wiki/Tree_structure">arbres</a> est ACTUELLEMENT la seule manière existante de créer des événements.
-\n
-\nJetez un coup d\'oeil à la <a href="https://github.com/renyuneyun/Easer/wiki/FAQ">FAQ</a> dans le wiki du projet.</string>
 
     <string name="alert_update_storage_data_title">Ancienne version de données trouvée</string>
     <string name="alert_update_storage_data">Vos données ont été créées dans une version antérieure. Il est conseillé de les mettre à jour vers une nouvelle version ou Easer risque de mal fonctionner. Vous pouvez faire cela en sélectionnant Conversion des données dans les paramètres.</string>
@@ -200,5 +185,7 @@
     <string name="pref_show_notification_summary">Afficher une notification dans la bar de notification.</string>
     <string name="pref_foreground_title">Exécuter le service au premier plan</string>
     <string name="pref_foreground_summary">Rend le service moins facile d\'être tué par le système. Affiche une notification. Ne peut pas être désactivé sur Android 8+ en raison des exigences du système.</string>
+
+    <string name="menu_tree_list">Arborescence</string>
 
     </resources>
